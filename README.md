@@ -5,25 +5,36 @@
   Includes step-by-step setup of a Domain Controller, Windows client, DNS configuration, and automated user creation with PowerShell.
 </p>
 
-<h2>Project Overview</h2>
+ </a><br/>
+  Built a Domain Controller (DC), created an Active Directory forest/domain, and joined a client machine — all inside a virtualized lab.
+</p>
 
-- Build a Windows Server **Domain Controller (DC)**
-- Configure **DNS, AD DS**, and promote to create the domain: <strong>lab.local</strong>
-- Create a Windows 10/11 **domain-joined client**
-- Configure a VirtualBox **Internal Network**
-- Automate **bulk user creation** using PowerShell + CSV
-- Perfect for blue-team labs, identity management practice, and security engineering fundamentals.
+<h2>Lab Goals</h2>
 
-<h2>Repository Contents</h2>
+<ol>
+  <li>Install Windows Server 2025 in a virtual machine</li>
+  <li>Configure basic networking (static IP + DNS)</li>
+  <li>Install Active Directory Domain Services (AD DS)</li>
+  <li>Promote the server to a Domain Controller</li>
+  <li>Create a new forest and domain (e.g., <code>lab.local</code>)</li>
+  <li>Prepare the environment so a Windows 10/11 client can join the domain</li>
+</ol>
 
-- <strong>README.md</strong> — Documentation and setup instructions  
-- <strong>/powershell/Add-DomainUsers.ps1</strong> — Script to bulk-create AD users  
-- <strong>/powershell/lab-users.csv</strong> — CSV template used for automation  
-- <strong>/docs/</strong> — Optional screenshots or references  
+<h2>Lab Environment</h2>
 
-<h2>PowerShell Automation</h2>
+<ul>
+  <li><strong>Hypervisor:</strong> Oracle VirtualBox (or similar)</li>
+  <li><strong>Server VM:</strong> Windows Server 2025</li>
+  <li><strong>Client VM:</strong> Windows 10/11 (optional but recommended)</li>
+  <li><strong>Network:</strong> Internal / Host-only network for the lab</li>
+</ul>
 
-<p>Example command to run bulk user import:</p>
+<h2>Prerequisites</h2>
 
-```powershell
-.\Add-DomainUsers.ps1 -CsvPath ".\lab-users.csv"
+<ul>
+  <li>Windows Server 2025 ISO</li>
+  <li>Windows 10/11 ISO (for client)</li>
+  <li>At least 16 GB RAM (to comfortably run multiple VMs)</li>
+  <li>At least 80–100 GB of free disk space</li>
+  <li>Oracle VirtualBox installed on your host machine</li>
+</ul>
